@@ -1,4 +1,4 @@
-import { connectDB } from '@/util/database';
+import { connectDB } from '@/utils/database';
 
 export default async function Home() {
   const client = await connectDB;
