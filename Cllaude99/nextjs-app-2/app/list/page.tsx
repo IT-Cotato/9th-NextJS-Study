@@ -1,5 +1,6 @@
 import { connectDB } from '@/utils/database';
 import styles from '../../styles/List/list.module.css';
+import Link from 'next/link';
 
 export default async function List() {
   const client = await connectDB;
@@ -9,10 +10,12 @@ export default async function List() {
   return (
     <div className={styles.listBg}>
       {result.map((info, index) => (
-        <div className={styles.listItem} key={index}>
-          <h4>{info.title}</h4>
-          <p>{info.content}</p>
-        </div>
+        <Link href={`/detail/${info._id}`}>
+          <div className={styles.listItem} key={index}>
+            <h4>{info.title}</h4>
+            <p>{info.content}</p>
+          </div>
+        </Link>
       ))}
     </div>
   );
