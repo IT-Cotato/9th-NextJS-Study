@@ -3,11 +3,3 @@ export async function GET(request: Request) {
     status: 200,
   });
 }
-
-export async function POST(request: Request) {
-  const formData = await request.formData();
-  const name = formData.get('name');
-  return new Response(`요청자 이름 : ${name}`, {
-    status: 200,
-  });
-}

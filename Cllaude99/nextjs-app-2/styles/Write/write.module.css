@@ -1,0 +1,17 @@
+.wrapper {
+  padding: 20px;
+}
+
+.userInput {
+  box-sizing: border-box;
+  padding: 10px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 10px 15px;
+  background: lightgray;
+  border: none;
+  border-radius: 5px;
+}
