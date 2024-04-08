@@ -2,19 +2,22 @@
   background: rgb(249, 250, 255);
   padding: 10px;
 }
-.listItem {
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   background: white;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 5px;
   box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
 }
-.listItem h4 {
+.contents h4 {
   font-size: 20px;
   font-weight: 800;
   margin: 0;
 }
-.listItem p {
+.contents p {
   color: gray;
   margin: 5px 0px;
 }

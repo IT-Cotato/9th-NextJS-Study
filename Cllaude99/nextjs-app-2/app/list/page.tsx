@@ -9,14 +9,21 @@ export default async function List() {
 
   return (
     <div className={styles.listBg}>
-      {result.map((info, index) => (
-        <Link href={`/detail/${info._id}`}>
-          <div className={styles.listItem} key={index}>
-            <h4>{info.title}</h4>
-            <p>{info.content}</p>
-          </div>
-        </Link>
-      ))}
+      <ul>
+        {result.map((info, index) => (
+          <li key={index} className={styles.contents}>
+            <Link href={`/detail/${info._id}`}>
+              <div key={index}>
+                <h4>{info.title}</h4>
+                <p>{info.content}</p>
+              </div>
+            </Link>
+            <span>
+              <Link href={`/edit/${info._id}`}>✏️</Link>
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
