@@ -2,6 +2,7 @@ import { age, name } from "./data.js";
 
 export default function Cart() {
   let products = ["Tomatoes", "Pasta"];
+
   return (
     <div>
       <h4 className="title">장바구니</h4>
