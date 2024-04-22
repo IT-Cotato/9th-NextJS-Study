@@ -1,0 +1,12 @@
+.navbar {
+  padding: 12px;
+}
+
+.navLists {
+  display: flex;
+  gap: 30px;
+}
+
+.navLists a:first-child {
+  font-weight: 700;
+}
