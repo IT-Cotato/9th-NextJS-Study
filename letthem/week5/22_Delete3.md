@@ -97,12 +97,12 @@ handler에서 요청.query로 받아오기!
 ListItem.js ⬇️
 
 ```javascript
-fetch(`/api/delete/${result[i]._id}`, {
+fetch(`/api/post/delete/${result[i]._id}`, {
   method: "DELETE",
 });
 ```
 
-api/delete/[id].js ⬇️
+api/post/delete/[id].js ⬇️
 
 ```javascript
 import { connectDB } from "@/util/database";
