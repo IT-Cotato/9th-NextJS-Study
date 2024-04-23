@@ -100,7 +100,7 @@ fetch() 함수 써야해서ㅠ
 
   - array를 데이터로 보낼 때 - **body : JSON.stringify( [1,2,3] )**
   - object를 데이터로 보낼 때 - **body : JSON.stringify( {name : 'kim'} )** 이런식으로 전송
-  - JSON에 붙은 따옴표 제거하고 싶을 때 - **JSON.parse()**
+  - JSON에 붙은 따옴표 제거하고 싶을 때 (다시 객체나 배열로) - **JSON.parse()**
 
 - ### PUT 요청 : fetch('/url', { method : 'PUT'})
 
