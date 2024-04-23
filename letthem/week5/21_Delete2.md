@@ -18,7 +18,9 @@ deleteOne(???) &rarr; document 1개 삭제해줌
 서버에 정보가 없으면
 
 - DB에서 찾아보거나
-- 유저에게 보내라고 하거나 - body:에 result[i].\_id 넣어줌
+- 유저에게 보내라고 하거나
+
+=> body:에 result[i].\_id 넣어줌
 
 ListItem.js ⬇️
 
