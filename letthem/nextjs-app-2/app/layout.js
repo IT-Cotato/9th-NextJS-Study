@@ -27,10 +27,10 @@ export default async function RootLayout({ children }) {
           {session ? (
             <span>
               {session.user.name}
-              <LoginBtn />
+              <LogoutBtn />
             </span>
           ) : (
-            <LogoutBtn />
+            <LoginBtn />
           )}
         </div>
         {children}

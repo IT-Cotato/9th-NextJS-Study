@@ -13,8 +13,9 @@ export default function ListItem({ result }) {
             <Link href={"/edit/" + result[i]._id}>🖊️</Link>
             <span
               onClick={(e) => {
-                fetch(`/api/post/delete/${result[i]._id}`, {
+                fetch("/api/post/delete", {
                   method: "DELETE",
+                  body: result[i]._id,
                 })
                   .then((r) => {
                     if (r.status == 200) {

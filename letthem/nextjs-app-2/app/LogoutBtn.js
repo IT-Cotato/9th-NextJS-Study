@@ -2,7 +2,7 @@
 
 import { signIn, signOut } from "next-auth/react";
 
-export default function LoginBtn() {
+export default function LogoutBtn() {
   return (
     <button
       onClick={() => {
