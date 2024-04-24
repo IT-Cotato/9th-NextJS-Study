@@ -1,3 +1,4 @@
+import Header from '@/components/header';
 import Setting from '@/components/setting';
 import StyledComponentsRegistry from '@/lib/registry';
 import type { Metadata } from 'next';
@@ -16,7 +17,10 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <StyledComponentsRegistry>
-          <Setting>{children}</Setting>
+          <Setting>
+            <Header />
+            {children}
+          </Setting>
         </StyledComponentsRegistry>
       </body>
     </html>
