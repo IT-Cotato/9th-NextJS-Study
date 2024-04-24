@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .list-item-begin {
+    @apply opacity-100 transition;
+  }
+}

@@ -5,13 +5,19 @@ import ListItem from '@/components/list-item';
 export default async function List() {
   const client = await connectDB;
   const db = client.db('forum');
-  let result = await db.collection('post').find().toArray();
+  const result = await db.collection('post').find().toArray();
 
   return (
     <div className={styles.listBg}>
-      <ul>
-        <ListItem result={result} />
-      </ul>
+      {result.map((info, index) => (
+        <ListItem
+          key={index}
+          index={index}
+          infoId={info._id}
+          title={info.title}
+          content={info.content}
+        />
+      ))}
     </div>
   );
 }
