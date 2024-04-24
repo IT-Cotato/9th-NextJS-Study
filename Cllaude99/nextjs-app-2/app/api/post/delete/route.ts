@@ -3,8 +3,7 @@ import { ObjectId } from 'mongodb';
 import { redirect } from 'next/navigation';
 
 export async function POST(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const id = searchParams.get('id');
+  const id = await request.json();
 
   if (!id) {
     return new Response('id가 존재하지 않습니다!', {
@@ -15,7 +14,7 @@ export async function POST(request: Request) {
   try {
     const client = await connectDB;
     const db = client.db('forum');
-    await db.collection('post').deleteOne({ _id: new ObjectId(id) });
+    await db.collection('post').deleteOne({ _id: new ObjectId(id + '') });
 
     redirect('/list');
   } catch (error) {

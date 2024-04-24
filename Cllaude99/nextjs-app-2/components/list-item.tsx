@@ -24,8 +24,9 @@ export default function ListItem({ result }: IListItem) {
             <span
               className="cursor-pointer"
               onClick={() => {
-                fetch(`/api/post/delete?id=${info._id}`, {
+                fetch(`/api/post/delete`, {
                   method: 'POST',
+                  body: JSON.stringify(info._id),
                 }).then(() => {
                   console.log('삭제 완료');
                 });
