@@ -2,6 +2,7 @@ import Header from '@/components/header';
 import Setting from '@/components/setting';
 import StyledComponentsRegistry from '@/lib/registry';
 import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
