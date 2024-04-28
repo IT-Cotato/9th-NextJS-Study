@@ -3,8 +3,11 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { products } from '@/shared/const';
+import { useState } from 'react';
 
 export default function List() {
+  const [productNum, setProductNum] = useState([0, 0, 0]);
+
   return (
     <Container>
       <Title>상품목록</Title>
@@ -17,7 +20,23 @@ export default function List() {
               width={100}
               height={100}
             />
-            {item.name} ${item.cost}
+            <h4>
+              {item.name} ${item.cost}
+            </h4>
+            <span>
+              {productNum[index]}{' '}
+              <button
+                onClick={() =>
+                  setProductNum((prev) => {
+                    const new_arr = [...prev];
+                    new_arr[index] += 1;
+                    return new_arr;
+                  })
+                }
+              >
+                +
+              </button>
+            </span>
           </Item>
         ))}
       </ItemList>
@@ -34,7 +53,12 @@ const Container = styled.div`
 const Title = styled.h4`
   margin: 50px 0px;
 `;
-const ItemList = styled.ul``;
+const ItemList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  width: 80vw;
+`;
 const ItemImg = styled(Image)`
   width: 100%;
   height: auto;

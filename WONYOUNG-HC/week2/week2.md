@@ -137,5 +137,3 @@ useState, useEffect 사용 불가
 
 <br>
 <br>
-
-# Component에 데이터를 전해주려면 props
