@@ -134,3 +134,6 @@ useState, useEffect 사용 불가
 로딩속도가 느리고, hydractoin이 필요
 
 **큰 페이지들은 server component, JS 기능이 필요한 곳만 client component**
+
+<br>
+<br>
