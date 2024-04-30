@@ -33,6 +33,7 @@ state를 변경하는 방법은 set 함수를 통해 변경
   - database
     - collection
       - documnet
+`npm install mongodb`
 
 ```js
 // util/database.js
