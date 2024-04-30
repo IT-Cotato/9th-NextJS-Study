@@ -26,7 +26,13 @@ state를 변경하는 방법은 set 함수를 통해 변경
 
 # Next.js에서 MongoDB 사용하기
 
-`npm install mongodb`
+- mongoDB : 데이터 저장시 JS object 자료형처럼 저장이 가능하고, SQL이 필수적이지 않음
+- mondgo db 설치 <br>
+  `npm install mongodb`
+- mongod의 구조
+  - database
+    - collection
+      - documnet
 
 ```js
 // util/database.js
@@ -58,4 +64,28 @@ export default async function Home() {
 }
 ```
 
+- `db.collection('post')` : post collectoin에 있는 데이터를 가져옴
+
 # 글목록 조회기능 만들기 (DB 데이터 출력)
+
+```js
+import { connectDB } from "@/util/database";
+
+export default async function List() {
+  const db = (await connectDB).db("forum");
+  let result = await db.collection("post").find().toArray();
+
+  return (
+    <div className="list-bg">
+      {result.map(() => (
+        <div className="list-item" key={i}>
+          <h4>{result[i].title}</h4>
+          <p>1월 1일</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+- mongoDB에서 데이터 가져와서 보여주기
