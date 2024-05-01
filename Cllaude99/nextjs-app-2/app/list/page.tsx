@@ -1,29 +1,28 @@
 import { connectDB } from '@/utils/database';
 import styles from '../../styles/List/list.module.css';
-import Link from 'next/link';
+import ListItem from '@/components/list-item';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
 
 export default async function List() {
   const client = await connectDB;
   const db = client.db('forum');
-  let result = await db.collection('post').find().toArray();
+  const result = await db.collection('post').find().toArray();
+  let session = await getServerSession(authOptions);
 
   return (
     <div className={styles.listBg}>
-      <ul>
-        {result.map((info, index) => (
-          <li key={index} className={styles.contents}>
-            <Link href={`/detail/${info._id}`}>
-              <div key={index}>
-                <h4>{info.title}</h4>
-                <p>{info.content}</p>
-              </div>
-            </Link>
-            <span>
-              <Link href={`/edit/${info._id}`}>✏️</Link>
-            </span>
-          </li>
-        ))}
-      </ul>
+      {result.map((info, index) => (
+        <ListItem
+          key={index}
+          index={index}
+          infoId={info._id}
+          title={info.title}
+          content={info.content}
+          session={session}
+          author={info.author}
+        />
+      ))}
     </div>
   );
 }
