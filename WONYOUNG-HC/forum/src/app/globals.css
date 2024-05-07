@@ -50,3 +50,7 @@ a {
 .logo {
   font-weight: bold;
 }
+.list-item {
+  opacity: 1;
+  transition: 1s all;
+}
