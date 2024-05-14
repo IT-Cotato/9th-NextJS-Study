@@ -8,8 +8,8 @@ import bcrypt from "bcrypt";
 export const authOptions = {
   providers: [
     GithubProvider({
-      clientId: "Github에서 발급받은 ID",
-      clientSecret: "Github에서 발급받은 Secret",
+      clientId: "c876bc6181839747694f",
+      clientSecret: "3754eb73569b2979690a7071ada443e5303827e6",
     }),
 
     CredentialsProvider({
