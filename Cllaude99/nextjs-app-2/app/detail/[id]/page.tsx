@@ -1,5 +1,6 @@
 import { connectDB } from '@/utils/database';
 import { ObjectId } from 'mongodb';
+import Comment from './comment';
 
 interface IDetailPage {
   params: { id: string };
@@ -14,6 +15,7 @@ export default async function DetailPage({ params: { id } }: IDetailPage) {
       <h4>상세페이지</h4>
       <h4>{result?.title}</h4>
       <p>{result?.content}</p>
+      <Comment parentId={result?._id.toString()} />
     </div>
   );
 }
