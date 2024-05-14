@@ -1,3 +1,32 @@
+# 회원기능 만들기 : 아이디/비번 + JWT 사용하기
+
+### 비밀번호 암호화
+
+npm install bcrypt
+
+pages/api/auth/signup.js ⬇️
+
+```javascript
+import { connectDB } from "@/util/database";
+import bcrypt from "bcrypt";
+
+export default async function handler(요청, 응답) {
+  if (요청.method === "POST") {
+    const hash = await bcrypt.hash(요청.body.password, 10);
+    요청.body.password = hash;
+
+    let db = (await connectDB).db("forum");
+    await db.collection("user_cred").insertOne(요청.body);
+    응답.status(200).json("가입성공");
+  }
+}
+```
+
+### CredentialsProvider
+
+pages/api/auth/[...nextauth].js ⬇️
+
+```javascript
 import { connectDB } from "@/util/database";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import NextAuth from "next-auth";
@@ -8,8 +37,8 @@ import bcrypt from "bcrypt";
 export const authOptions = {
   providers: [
     GithubProvider({
-      clientId: "c876bc6181839747694f",
-      clientSecret: "3754eb73569b2979690a7071ada443e5303827e6",
+      clientId: "Github에서 발급받은 ID",
+      clientSecret: "Github에서 발급받은 Secret",
     }),
 
     CredentialsProvider({
@@ -73,3 +102,9 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 };
 export default NextAuth(authOptions);
+```
+
+- input 폼 추가 credentials에!
+- 5. 컴포넌트 안에서 유저의 session 정보 보여줄 때 보여줄 데이터 설정
+
+.env 파일에 secret 저장
