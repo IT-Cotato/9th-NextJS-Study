@@ -6,7 +6,8 @@ export default async function Home() {
   const client = await connectDB;
   const db = client.db("forum");
   let data = await db.collection("post").find().toArray();
-  console.log(data);
+
+  // await fetch('/URL', {cache : 'force-cache'})
 
   return <div>안녕</div>;
 }

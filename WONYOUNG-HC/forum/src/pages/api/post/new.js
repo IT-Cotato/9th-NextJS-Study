@@ -1,4 +1,6 @@
 import { connectDB } from "@/util/database";
+import { getSession } from "next-auth/react";
+import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(요청, 응답) {
   if (요청.method === "POST") {
