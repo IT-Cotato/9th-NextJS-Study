@@ -1,9 +1,9 @@
 import styles from '@/styles/Header/header.module.css';
-import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import SocialLoginButton from './sociaLoign-btn';
+import DarkModeBtn from './dark-mode';
 
-export default function Header() {
+export default function Header({ mode }: { mode: string | undefined }) {
   return (
     <header>
       <nav className={styles.navbar}>
@@ -15,6 +15,7 @@ export default function Header() {
             <li>글 목록</li>
           </Link>
           <SocialLoginButton />
+          <DarkModeBtn initialMode={mode} />
         </ul>
       </nav>
     </header>

@@ -5,6 +5,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { useState } from 'react';
+import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,12 +18,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const res = cookies().get('mode');
+
   return (
     <html lang="ko">
-      <body>
+      <body className={res && res.value === 'dark' ? 'dark-mode' : ''}>
         <StyledComponentsRegistry>
           <Setting>
-            <Header />
+            <Header mode={res?.value} />
             {children}
           </Setting>
         </StyledComponentsRegistry>

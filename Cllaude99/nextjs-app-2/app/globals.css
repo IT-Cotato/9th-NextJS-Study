@@ -7,3 +7,8 @@
     @apply opacity-100 transition;
   }
 }
+
+.dark-mode {
+  background: black;
+  color: white;
+}
