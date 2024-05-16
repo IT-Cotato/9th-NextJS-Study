@@ -1,4 +1,5 @@
 import styles from '@/styles/Write/write.module.css';
+import { ChangeEvent, InputHTMLAttributes } from 'react';
 
 export default function Write() {
   return (
@@ -21,6 +22,20 @@ export default function Write() {
           버튼
         </button>
       </form>
+
+      <input
+        type="file"
+        accept="image/*"
+        onChange={async (e: ChangeEvent<HTMLInputElement>) => {
+          if (e.target.files) {
+            let file = e.target.files[0];
+            let filename = encodeURIComponent(file.name);
+            let res = await fetch('/api/post/image?file=' + filename);
+            res = await res.json();
+          }
+        }}
+      />
+      <img />
     </div>
   );
 }
