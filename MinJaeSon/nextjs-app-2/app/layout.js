@@ -8,7 +8,11 @@ import LogoutBtn from "./LogoutBtn";
 
 export default async function RootLayout({ children }) {
   const session = await getServerSession(authOptions)
-  console.log(session, '로그인 상태ㅇㅇ')
+  if (session) {
+    console.log(session, '로그인 상태ㅇㅇ')
+  } else {
+    console.log('로그아웃 상태')
+  }
 
   return (
     <html lang="en">
