@@ -58,15 +58,3 @@ a {
   opacity: 1;
   transition: all 1s; /* 1초에 걸쳐서 서서히 변화 */
 }
-
-.detail {
-  background: #f7f7f7;
-}
-
-.dark-mode .navbar {
-  background: #222;
-}
-
-.dark-mode .navbar a {
-  color: white;
-}

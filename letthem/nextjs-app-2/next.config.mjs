@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack5: true,
   webpack: (config, { isServer }) => {
     // 기존 설정
     config.cache = false;
