@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dark-mode .navbar {
+  background: #222;
+}
+.dark-mode .navbar a {
+  color: #fff;
+}
