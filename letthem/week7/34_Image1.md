@@ -10,7 +10,6 @@ ex. AWS S3
 
 AWS &rarr; S3 &rarr; 버킷만들기
 
-
 버킷 권한 설정 &rarr; 버킷 정책 편집 ⬇️
 
 ```
@@ -59,7 +58,7 @@ AWS &rarr; S3 &rarr; 버킷만들기
             "ETag"
         ]
     }
-] 
+]
 ```
 
 서버 프로그램에서 S3 업로드하려면 Access key 필요
@@ -69,10 +68,11 @@ AWS &rarr; S3 &rarr; 버킷만들기
 write/page.js ⬇️
 
 ```javascript
-<input type="file" accept="image/*"/>
+<input type="file" accept="image/*" />
 ```
 
-선택한 이미지 보여주려면 
+선택한 이미지 보여주려면
+
 1. createObjectURL
 2. 이미지 업로드해버리기 &larr; 이걸로 고
 

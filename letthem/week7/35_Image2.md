@@ -34,7 +34,7 @@ export default function Write() {
 
 2. 서버는 Presigned URL 발급
 
-npm install aws-sdk 설치
+- npm install aws-sdk 설치
 
 pages/api/post/image.js ⬇️
 
